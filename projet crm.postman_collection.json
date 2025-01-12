@@ -1,0 +1,434 @@
+{
+	"info": {
+		"_postman_id": "8b0346c3-e3c8-44d1-b921-2528f2bb8eb2",
+		"name": "projet crm",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40927023"
+	},
+	"item": [
+		{
+			"name": "Tickets",
+			"item": [
+				{
+					"name": "http://localhost:8080/tickets",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"uuidTicket\": \"923e4567-e89b-12d3-a456-426614174000\",\r\n  \"uuidClient\": \"456e7890-a12c-34d5-b678-526718273000\",\r\n  \"title\": \"Login Issue\",\r\n  \"description\": \"User cannot log in to the system.\",\r\n  \"dateCreated\": \"2025-01-09T12:34:56\",\r\n  \"dateUpdate\": null,\r\n  \"status\": \"UNSTARTED\",\r\n  \"priority\": \"HIGH\",\r\n  \"requestType\": \"SUPPORT\",\r\n  \"source\": \"EMAIL\",\r\n  \"comments\": \"Initial support request\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/tickets",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tickets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8080/tickets",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/tickets",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tickets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8080/tickets/:uuid",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/tickets/:uuid",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tickets",
+								":uuid"
+							],
+							"variable": [
+								{
+									"key": "uuid",
+									"value": "923e4567-e89b-12d3-a456-426614174000"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8080/tickets/:uuid",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"uuidTicket\": \"423e4567-e89b-12d3-a456-426614174000\",\r\n  \"uuidClient\": \"456e7890-a12c-34d5-b678-526718273000\",\r\n  \"title\": \"Login Issue - Resolved\",\r\n  \"description\": \"User was able to log in after a password reset.\",\r\n  \"dateCreated\": \"2025-01-09T12:34:56\",\r\n  \"dateUpdate\": \"2025-01-10T08:15:30\",\r\n  \"status\": \"ENDED\",\r\n  \"priority\": \"NORMAL\",\r\n  \"requestType\": \"SUPPORT\",\r\n  \"source\": \"EMAIL\",\r\n  \"comments\": \"Issue resolved\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/tickets/:uuid",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tickets",
+								":uuid"
+							],
+							"variable": [
+								{
+									"key": "uuid",
+									"value": "923e4567-e89b-12d3-a456-426614174000"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8080/tickets/:uuid",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/tickets/:uuid",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tickets",
+								":uuid"
+							],
+							"variable": [
+								{
+									"key": "uuid",
+									"value": "923e4567-e89b-12d3-a456-426614174000"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Task",
+			"item": [
+				{
+					"name": "http://localhost:8080/ticket-tasks",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"uuidTask\": \"234f5678-d45e-56f7-e890-631921476000\",\r\n  \"ticket\": \"123e4567-e89b-12d3-a456-426614174000\",\r\n  \"dateReminder\": \"2025-01-12T10:00:00\",\r\n  \"description\": \"Follow-up with user to ensure the issue is resolved.\",\r\n  \"uuidUser\": \"321f6543-d12b-34c5-f678-829110275000\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/ticket-tasks",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ticket-tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8080/ticket-tasks",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/ticket-tasks",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ticket-tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8080/ticket-tasks/:uuid",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/ticket-tasks/:uuid",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ticket-tasks",
+								":uuid"
+							],
+							"variable": [
+								{
+									"key": "uuid",
+									"value": "234f5678-d45e-56f7-e890-631921476000"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8080/ticket-tasks/:uuid",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"uuidTask\": \"234f5678-d45e-56f7-e890-631921476000\",\r\n  \"ticket\": \"123e4567-e89b-12d3-a456-426614174000\",\r\n  \"dateReminder\": \"2025-01-13T09:30:00\",\r\n  \"description\": \"Verified resolution with user, task completed.\",\r\n  \"uuidUser\": \"321f6543-d12b-34c5-f678-829110275000\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/ticket-tasks/:uuid",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ticket-tasks",
+								":uuid"
+							],
+							"variable": [
+								{
+									"key": "uuid",
+									"value": "234f5678-d45e-56f7-e890-631921476000"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8080/ticket-tasks/:uuid",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/ticket-tasks/:uuid",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ticket-tasks",
+								":uuid"
+							],
+							"variable": [
+								{
+									"key": "uuid",
+									"value": "234f5678-d45e-56f7-e890-631921476000"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Actions",
+			"item": [
+				{
+					"name": "http://localhost:8080/ticket-actions",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"uuidAction\": \"924e0123-c34d-45e6-d789-627819374000\",\r\n  \"ticket\": \"423e4567-e89b-12d3-a456-426614174000\",\r\n  \"dateAction\": \"2025-01-09T15:00:00\",\r\n  \"actionType\": \"CREATION\",\r\n  \"description\": \"Created ticket for login issue\",\r\n  \"uuidUser\": \"321f6543-d12b-34c5-f678-829110275000\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/ticket-actions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ticket-actions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8080/ticket-actions",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/ticket-actions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ticket-actions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8080/ticket-actions/:uuid",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/ticket-actions/:uuid",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ticket-actions",
+								":uuid"
+							],
+							"variable": [
+								{
+									"key": "uuid",
+									"value": "0576394b-b813-4644-982c-0e08e9a3d792"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8080/ticket-actions/:uuid",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/ticket-actions/:uuid",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ticket-actions",
+								":uuid"
+							],
+							"variable": [
+								{
+									"key": "uuid",
+									"value": "0576394b-b813-4644-982c-0e08e9a3d792"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
