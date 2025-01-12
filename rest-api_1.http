@@ -1,0 +1,103 @@
+### Create a new ticket
+POST http://localhost:8080/tickets
+Content-Type: application/json
+
+{
+  "uuidTicket": "923e4567-e89b-12d3-a456-426614174000",
+  "uuidClient": "456e7890-a12c-34d5-b678-526718273000",
+  "title": "Login Issue",
+  "description": "User cannot log in to the system.",
+  "dateCreated": "2025-01-09T12:34:56",
+  "dateUpdate": null,
+  "status": "UNSTARTED",
+  "priority": "HIGH",
+  "requestType": "SUPPORT",
+  "source": "EMAIL",
+  "comments": "Initial support request"
+}
+
+### Get all tickets
+GET http://localhost:8080/tickets
+
+### Get a specific ticket by UUID
+GET http://localhost:8080/tickets/923e4567-e89b-12d3-a456-426614174000
+
+### Update a ticket by UUID
+PUT http://localhost:8080/tickets/923e4567-e89b-12d3-a456-426614174000
+Content-Type: application/json
+
+{
+  "uuidTicket": "423e4567-e89b-12d3-a456-426614174000",
+  "uuidClient": "456e7890-a12c-34d5-b678-526718273000",
+  "title": "Login Issue - Resolved",
+  "description": "User was able to log in after a password reset.",
+  "dateCreated": "2025-01-09T12:34:56",
+  "dateUpdate": "2025-01-10T08:15:30",
+  "status": "ENDED",
+  "priority": "NORMAL",
+  "requestType": "SUPPORT",
+  "source": "EMAIL",
+  "comments": "Issue resolved"
+}
+
+### Delete a ticket by UUID
+DELETE http://localhost:8080/tickets/923e4567-e89b-12d3-a456-426614174000
+
+---
+
+### Create a new ticket action
+POST http://localhost:8080/ticket-actions
+Content-Type: application/json
+
+{
+  "uuidAction": "924e0123-c34d-45e6-d789-627819374000",
+  "ticket": "423e4567-e89b-12d3-a456-426614174000",
+  "dateAction": "2025-01-09T15:00:00",
+  "actionType": "CREATION",
+  "description": "Created ticket for login issue",
+  "uuidUser": "321f6543-d12b-34c5-f678-829110275000"
+}
+
+### Get all ticket actions
+GET http://localhost:8080/ticket-actions
+
+### Get a specific ticket action by UUID
+GET http://localhost:8080/ticket-actions/924e0123-c34d-45e6-d789-627819374000
+
+### Delete a ticket action by UUID
+DELETE http://localhost:8080/ticket-actions/924e0123-c34d-45e6-d789-627819374000
+
+---
+
+### Create a new ticket task
+POST http://localhost:8080/ticket-tasks
+Content-Type: application/json
+
+{
+  "uuidTask": "234f5678-d45e-56f7-e890-631921476000",
+  "ticket": "123e4567-e89b-12d3-a456-426614174000",
+  "dateReminder": "2025-01-12T10:00:00",
+  "description": "Follow-up with user to ensure the issue is resolved.",
+  "uuidUser": "321f6543-d12b-34c5-f678-829110275000"
+}
+
+### Get all ticket tasks
+GET http://localhost:8080/ticket-tasks
+
+### Get a specific ticket task by UUID
+GET http://localhost:8080/ticket-tasks/234f5678-d45e-56f7-e890-631921476000
+
+### Update a ticket task by UUID
+PUT http://localhost:8080/ticket-tasks/234f5678-d45e-56f7-e890-631921476000
+Content-Type: application/json
+
+{
+  "uuidTask": "234f5678-d45e-56f7-e890-631921476000",
+  "ticket": "123e4567-e89b-12d3-a456-426614174000",
+  "dateReminder": "2025-01-13T09:30:00",
+  "description": "Verified resolution with user, task completed.",
+  "uuidUser": "321f6543-d12b-34c5-f678-829110275000"
+}
+
+### Delete a ticket task by UUID
+DELETE http://localhost:8080/ticket-tasks/234f5678-d45e-56f7-e890-631921476000
